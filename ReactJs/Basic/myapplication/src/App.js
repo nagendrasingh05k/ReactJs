@@ -1,8 +1,6 @@
-import './App.css';
+
 import { useState } from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import "./LoginPage.css";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -20,32 +18,30 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex items-center justify-center h-screen bg-gray-100">
-      <Card className="w-96 p-6 shadow-lg bg-white rounded-lg">
-        <CardContent>
-          <h2 className="text-2xl font-bold text-center mb-4">Login</h2>
-          {error && <p className="text-red-500 text-sm text-center">{error}</p>}
-          <form onSubmit={handleLogin} className="space-y-4">
-            <Input
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full p-2 border rounded"
-            />
-            <Input
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="w-full p-2 border rounded"
-            />
-            <Button type="submit" className="w-full bg-blue-500 text-white py-2 rounded">
-              Login
-            </Button>
-          </form>
-        </CardContent>
-      </Card>
+    <div className="login-container">
+      <div className="login-card">
+        <h2 className="login-title">Login</h2>
+        {error && <p className="login-error">{error}</p>}
+        <form onSubmit={handleLogin}>
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="login-input"
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="login-input"
+          />
+          <button type="submit" className="login-button">
+            Login
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
