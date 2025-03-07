@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./Login.css";
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -8,15 +9,15 @@ function Login() {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    if (username === "admin" && password === "1234") {
+    if (username === "nagendra" && password === "1234") {
       navigate("/products");
     } else {
-      alert("Invalid credentials! Try admin/1234");
+      alert("Invalid credentials! Try nagendra/1234");
     }
   };
 
   return (
-    <div className="container">
+    <div className="container1">
       <h2>Login</h2>
       <form onSubmit={handleLogin}>
         <input
